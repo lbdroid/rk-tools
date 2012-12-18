@@ -7,7 +7,7 @@
 #include "rkafp.h"
 #include "md5.h"
 
-unsigned int chiptype = 0x50;
+unsigned int chiptype = 0x60;
 
 unsigned int import_data(const char* infile, void *head, size_t head_len, FILE *fp)
 {
@@ -93,7 +93,7 @@ int pack_rom(const char *loader_filename, int majver, int minver, int subver, co
 
 	rom_header.chip = chiptype;
 	rom_header.version = (((majver) << 24) + ((minver) << 16) + (subver));
-	rom_header.code = 0x01030000;
+	rom_header.code = 0x01050000;
 	nowtime = time(NULL);
 	localtime_r(&nowtime, &local_time);
 
